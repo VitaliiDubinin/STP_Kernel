@@ -1,11 +1,11 @@
 import React from "react";
 // import css from './producCard.module.css';
 import { Link } from "react-router-dom";
-
+import axios from "axios";
 
 function ProductCard({ productName, shortDescription, totalAmount, units, productPrice, imageUrl = null }) {
 
-  const randImg = 1;
+  const randImg = axios.get();
   const image = imageUrl ? imageUrl : "no image available";
 
   return (
