@@ -13,4 +13,6 @@ class SpaController extends AbstractController
     {
         return $this->render('spa/index.html.twig');
     }
+
 }
+

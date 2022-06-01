@@ -194,11 +194,11 @@
       <tag name="controller.service_arguments"/>
       <tag name="routing.route_loader"/>
     </service>
-    <service id="App\Controller\ReceipeController" class="App\Controller\ReceipeController" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Controller\DbApi_Controller" class="App\Controller\DbApi_Controller" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.l1ae.Qz.App\Controller\ReceipeController"/>
+        <argument type="service" id=".service_locator.l1ae.Qz.App\Controller\DbApi_Controller"/>
       </call>
     </service>
     <service id="App\Controller\SpaController" class="App\Controller\SpaController" public="true" autowire="true" autoconfigure="true">
@@ -3341,9 +3341,9 @@
         <argument>Hash a user password</argument>
       </call>
     </service>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ReceipeController" class="App\Controller\ReceipeController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ReceipeController" class="App\Controller\ReceipeController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\ReceipeController" class="App\Controller\ReceipeController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\DbApi_Controller" class="App\Controller\DbApi_Controller" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\DbApi_Controller" class="App\Controller\DbApi_Controller" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\DbApi_Controller" class="App\Controller\DbApi_Controller" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SpaController" class="App\Controller\SpaController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SpaController" class="App\Controller\SpaController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SpaController" class="App\Controller\SpaController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -3681,37 +3681,15 @@
         <argument key="loader" type="service_closure" id=".errored..service_locator.KfbR3DY.Symfony\Component\Config\Loader\LoaderInterface"/>
       </argument>
     </service>
-    <service id=".service_locator.5miB8_X" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.zxMugcL" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="em" type="service_closure" id="doctrine.orm.default_entity_manager"/>
-      </argument>
-    </service>
-    <service id=".service_locator.T7xmfzk" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="doctrine" type="service_closure" id="doctrine"/>
-      </argument>
-    </service>
-    <service id=".service_locator.FTkeGtH" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="App\Controller\ReceipeController::addRecipe" type="service_closure" id=".service_locator.T7xmfzk"/>
-        <argument key="App\Controller\ReceipeController::editRecipe" type="service_closure" id=".service_locator.T7xmfzk"/>
-        <argument key="App\Controller\ReceipeController::findRecipe" type="service_closure" id=".service_locator.5miB8_X"/>
-        <argument key="App\Controller\ReceipeController::getAllRecipe" type="service_closure" id=".service_locator.5miB8_X"/>
-        <argument key="App\Controller\ReceipeController::removeRecipe" type="service_closure" id=".service_locator.T7xmfzk"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="App\Kernel::terminate" type="service_closure" id=".service_locator.KfwZsne"/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::terminate" type="service_closure" id=".service_locator.KfwZsne"/>
-        <argument key="App\Controller\ReceipeController:addRecipe" type="service_closure" id=".service_locator.T7xmfzk"/>
-        <argument key="App\Controller\ReceipeController:editRecipe" type="service_closure" id=".service_locator.T7xmfzk"/>
-        <argument key="App\Controller\ReceipeController:findRecipe" type="service_closure" id=".service_locator.5miB8_X"/>
-        <argument key="App\Controller\ReceipeController:getAllRecipe" type="service_closure" id=".service_locator.5miB8_X"/>
-        <argument key="App\Controller\ReceipeController:removeRecipe" type="service_closure" id=".service_locator.T7xmfzk"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel:terminate" type="service_closure" id=".service_locator.KfwZsne"/>
@@ -3831,9 +3809,9 @@
         <argument key="twig" type="service_closure" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id=".service_locator.l1ae.Qz.App\Controller\ReceipeController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\ReceipeController"/>
-      <argument>App\Controller\ReceipeController</argument>
+    <service id=".service_locator.l1ae.Qz.App\Controller\DbApi_Controller" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\DbApi_Controller"/>
+      <argument>App\Controller\DbApi_Controller</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.l1ae.Qz" method="withContext"/>
     </service>
@@ -3960,12 +3938,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.FTkeGtH"/>
+      <argument type="service" id=".service_locator.zxMugcL"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.FTkeGtH"/>
+      <argument type="service" id=".service_locator.zxMugcL"/>
     </service>
     <service id=".doctrine.orm.default_metadata_driver.inner" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
       <call method="addDriver">
@@ -4609,13 +4587,13 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.FTkeGtH"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.zxMugcL"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface" alias="logger"/>
     <service id=".service_locator.XDGmiR3" alias=".1_ServiceLocator~USNQPl8"/>
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
-    <service id=".service_locator.3gxT7rE" alias=".service_locator.FTkeGtH"/>
+    <service id=".service_locator.YxNo8ZP" alias=".service_locator.zxMugcL"/>
     <service id=".service_locator.qBCHs1a" alias=".service_locator.QXcJQkF"/>
     <service id=".service_locator.jkb6XQV" alias=".service_locator.l1ae.Qz"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher" public="true"/>
@@ -4636,8 +4614,6 @@
     <service id="doctrine.orm.default_metadata_driver" alias=".doctrine.orm.default_metadata_driver"/>
     <service id=".service_locator._5g_Wvc" alias=".service_locator.KfwZsne"/>
     <service id=".service_locator.JBAFp66" alias=".service_locator.KfbR3DY"/>
-    <service id=".service_locator.kydi4Ed" alias=".service_locator.5miB8_X"/>
-    <service id=".service_locator.T8.TLJR" alias=".service_locator.T7xmfzk"/>
     <service id=".service_locator.LJ94tHc" alias=".service_locator.l1ae.Qz"/>
     <service id=".service_locator.u6DWx23" alias=".service_locator.cXsfP3P"/>
     <service id=".service_locator.aa1PbBb" alias=".service_locator.nLgZj7R"/>
