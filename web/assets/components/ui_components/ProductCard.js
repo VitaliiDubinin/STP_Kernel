@@ -3,14 +3,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+const randPicAPI = 'https://source.unsplash.com/500x400/?'; //head api
+
 function ProductCard({ productName, shortDescription, totalAmount, units, productPrice, imageUrl = null }) {
 
-  const randImg = axios.get();
-  const image = imageUrl ? imageUrl : "no image available";
+  //const randImg = axios.get(randPicAPI + toLowerCase(productName));
+  //const image = imageUrl ? imageUrl : randImg;
 
   return (
     <div className="productCard">
-      <div className="productImage">{image}</div>
+      <div className="productImage"><img src={imageUrl} className="image" alt={"No " + productName + " image available."} /></div>
       <div className="productBodyContainer">
         <h3 className="productName"> {productName} </h3>
         <div className="shortDescription">
@@ -24,7 +26,7 @@ function ProductCard({ productName, shortDescription, totalAmount, units, produc
           </Link>
           <button type="submit" className="addToCartBtn">
             {" "}
-            add{" "}
+            add{" "} 
           </button>
           <div className="productPrice">
             {productPrice}€/{units}
