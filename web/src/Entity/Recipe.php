@@ -28,8 +28,8 @@ class Recipe
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $photo;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private $recipe;
+   /* #[ORM\Column(type: 'string', length: 255)]
+    private $recipe;*/
 
     public function getId(): ?int
     {
@@ -96,7 +96,7 @@ class Recipe
         return $this;
     }
 
-    public function getRecipe(): ?string
+    /*public function getRecipe(): ?string
     {
         return $this->recipe;
     }
@@ -106,5 +106,5 @@ class Recipe
         $this->recipe = $recipe;
 
         return $this;
-    }
+    }*/
 }
