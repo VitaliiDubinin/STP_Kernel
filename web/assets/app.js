@@ -6,7 +6,7 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
-import "./styles/app.css";
+// import "./styles/app.css";
 // import "./styles/main.module.css";
 // import "./styles/pages.module.css";
 // import "./styles/footer.module.css";

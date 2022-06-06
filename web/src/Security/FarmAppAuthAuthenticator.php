@@ -19,7 +19,7 @@ class FarmAppAuthAuthenticator extends AbstractLoginFormAuthenticator
 {
     use TargetPathTrait;
 
-    public const LOGIN_ROUTE = 'http://localhost:8507';
+    public const LOGIN_ROUTE = 'app_login';
 
     private UrlGeneratorInterface $urlGenerator;
 
@@ -57,5 +57,6 @@ class FarmAppAuthAuthenticator extends AbstractLoginFormAuthenticator
     protected function getLoginUrl(Request $request): string
     {
         return $this->urlGenerator->generate(self::LOGIN_ROUTE);
+        // return $this->urlGenerator->generate("api_mainget_all_products");
     }
 }

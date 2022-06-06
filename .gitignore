@@ -9,7 +9,7 @@ public/uploads/*
 "gitignore
 
 **/farmers/
-
+MVP.md
  env.
 .env
 

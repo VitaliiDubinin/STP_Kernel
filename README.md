@@ -16,14 +16,17 @@ cd web
 npm install
 npm run watch
 ```
-go to cli in your docker dasboard: 
+
+- phpMyAdmin will run on [http://localhost:9582]
+- npm watch will run on [http://localhost:8507]
+
+go to your docker dasboard,
+enter in cli of phpMyAdmin:
+
 ```shell
 cd web
 php bin/console doctrine:migrations:migrate
 ```
-
-- npm watch will run on [http://localhost:8507](http://localhost:8507)
-- phpMyAdmin will run on [http://localhost:9582](http://localhost:9582)
 
 # Use for reference
 

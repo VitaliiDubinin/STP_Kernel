@@ -194,6 +194,27 @@
       <tag name="controller.service_arguments"/>
       <tag name="routing.route_loader"/>
     </service>
+    <service id="App\Controller\DbApi_Controller" class="App\Controller\DbApi_Controller" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.l1ae.Qz.App\Controller\DbApi_Controller"/>
+      </call>
+    </service>
+    <service id="App\Controller\Product2Controller" class="App\Controller\Product2Controller" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.l1ae.Qz.App\Controller\Product2Controller"/>
+      </call>
+    </service>
+    <service id="App\Controller\ProductController" class="App\Controller\ProductController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.l1ae.Qz.App\Controller\ProductController"/>
+      </call>
+    </service>
     <service id="App\Controller\ReceipeController" class="App\Controller\ReceipeController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -217,6 +238,10 @@
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\RecipeRepository" class="App\Repository\RecipeRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\StpUserRepository" class="App\Repository\StpUserRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -1840,7 +1865,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.8MiYa48"/>
+      <argument type="service" id=".service_locator.84itzt1"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -3341,6 +3366,15 @@
         <argument>Hash a user password</argument>
       </call>
     </service>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\DbApi_Controller" class="App\Controller\DbApi_Controller" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\DbApi_Controller" class="App\Controller\DbApi_Controller" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\DbApi_Controller" class="App\Controller\DbApi_Controller" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Product2Controller" class="App\Controller\Product2Controller" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Product2Controller" class="App\Controller\Product2Controller" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Product2Controller" class="App\Controller\Product2Controller" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ProductController" class="App\Controller\ProductController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ProductController" class="App\Controller\ProductController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ProductController" class="App\Controller\ProductController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ReceipeController" class="App\Controller\ReceipeController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ReceipeController" class="App\Controller\ReceipeController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ReceipeController" class="App\Controller\ReceipeController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -3353,6 +3387,8 @@
     <service id=".abstract.instanceof.App\Repository\ProductRepository" class="App\Repository\ProductRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\RecipeRepository" class="App\Repository\RecipeRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\RecipeRepository" class="App\Repository\RecipeRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\StpUserRepository" class="App\Repository\StpUserRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\StpUserRepository" class="App\Repository\StpUserRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.gSv9zYw" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -3693,9 +3729,12 @@
         <argument key="doctrine" type="service_closure" id="doctrine"/>
       </argument>
     </service>
-    <service id=".service_locator.FTkeGtH" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.W71jTba" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\Product2Controller::getAllProducts" type="service_closure" id=".service_locator.5miB8_X"/>
+        <argument key="App\Controller\ProductController::findProduct" type="service_closure" id=".service_locator.5miB8_X"/>
+        <argument key="App\Controller\ProductController::getAllProducts" type="service_closure" id=".service_locator.5miB8_X"/>
         <argument key="App\Controller\ReceipeController::addRecipe" type="service_closure" id=".service_locator.T7xmfzk"/>
         <argument key="App\Controller\ReceipeController::editRecipe" type="service_closure" id=".service_locator.T7xmfzk"/>
         <argument key="App\Controller\ReceipeController::findRecipe" type="service_closure" id=".service_locator.5miB8_X"/>
@@ -3707,6 +3746,9 @@
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::terminate" type="service_closure" id=".service_locator.KfwZsne"/>
+        <argument key="App\Controller\Product2Controller:getAllProducts" type="service_closure" id=".service_locator.5miB8_X"/>
+        <argument key="App\Controller\ProductController:findProduct" type="service_closure" id=".service_locator.5miB8_X"/>
+        <argument key="App\Controller\ProductController:getAllProducts" type="service_closure" id=".service_locator.5miB8_X"/>
         <argument key="App\Controller\ReceipeController:addRecipe" type="service_closure" id=".service_locator.T7xmfzk"/>
         <argument key="App\Controller\ReceipeController:editRecipe" type="service_closure" id=".service_locator.T7xmfzk"/>
         <argument key="App\Controller\ReceipeController:findRecipe" type="service_closure" id=".service_locator.5miB8_X"/>
@@ -3779,12 +3821,13 @@
       <argument type="service" id="cache.doctrine.orm.default.result"/>
       <factory class="Doctrine\Common\Cache\Psr6\DoctrineProvider" method="wrap"/>
     </service>
-    <service id=".service_locator.8MiYa48" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.84itzt1" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\LoginUserRepository" type="service_closure" id="App\Repository\LoginUserRepository"/>
         <argument key="App\Repository\ProductRepository" type="service_closure" id="App\Repository\ProductRepository"/>
         <argument key="App\Repository\RecipeRepository" type="service_closure" id="App\Repository\RecipeRepository"/>
+        <argument key="App\Repository\StpUserRepository" type="service_closure" id="App\Repository\StpUserRepository"/>
       </argument>
     </service>
     <service id=".service_locator.KLVvNIq" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -3830,6 +3873,24 @@
         <argument key="security.token_storage" type="service_closure" id="security.token_storage" on-invalid="ignore"/>
         <argument key="twig" type="service_closure" id="twig" on-invalid="ignore"/>
       </argument>
+    </service>
+    <service id=".service_locator.l1ae.Qz.App\Controller\DbApi_Controller" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\DbApi_Controller"/>
+      <argument>App\Controller\DbApi_Controller</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.l1ae.Qz" method="withContext"/>
+    </service>
+    <service id=".service_locator.l1ae.Qz.App\Controller\Product2Controller" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Product2Controller"/>
+      <argument>App\Controller\Product2Controller</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.l1ae.Qz" method="withContext"/>
+    </service>
+    <service id=".service_locator.l1ae.Qz.App\Controller\ProductController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\ProductController"/>
+      <argument>App\Controller\ProductController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.l1ae.Qz" method="withContext"/>
     </service>
     <service id=".service_locator.l1ae.Qz.App\Controller\ReceipeController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\ReceipeController"/>
@@ -3960,12 +4021,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.FTkeGtH"/>
+      <argument type="service" id=".service_locator.W71jTba"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.FTkeGtH"/>
+      <argument type="service" id=".service_locator.W71jTba"/>
     </service>
     <service id=".doctrine.orm.default_metadata_driver.inner" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
       <call method="addDriver">
@@ -4609,13 +4670,13 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.FTkeGtH"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.W71jTba"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface" alias="logger"/>
     <service id=".service_locator.XDGmiR3" alias=".1_ServiceLocator~USNQPl8"/>
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
-    <service id=".service_locator.3gxT7rE" alias=".service_locator.FTkeGtH"/>
+    <service id=".service_locator.WO1RGZl" alias=".service_locator.W71jTba"/>
     <service id=".service_locator.qBCHs1a" alias=".service_locator.QXcJQkF"/>
     <service id=".service_locator.jkb6XQV" alias=".service_locator.l1ae.Qz"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher" public="true"/>

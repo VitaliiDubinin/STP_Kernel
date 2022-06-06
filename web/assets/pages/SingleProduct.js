@@ -5,10 +5,12 @@ import { useLocation } from "react-router-dom";
 function SingleProduct() {
   const location = useLocation();
   const product = location.state.data;
+
   return (
     <div className="pageContainer">
-      <h1>{product.productName}</h1>
+      <h1>{product.product_name}</h1>
       SingleProduct Name
+      <div>test test</div>
     </div>
   );
 }

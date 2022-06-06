@@ -18,23 +18,14 @@ function Main() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />}>
-          {" "}
-        </Route>
-        <Route path="/:productId" element={<SingleProduct />}>
-          {" "}
-        </Route>
-        <Route path="/profile" element={<Profile />}>
-          {" "}
-        </Route>
-        <Route path="/cart" element={<Cart />}>
-          {" "}
-        </Route>
-        <Route path="/cart/checkout" element={<CheckOut />}>
-          {" "}
-        </Route>
-        <Route path="/login" element={<LogIn/>}></Route>
-        <Route path="/login/signup" element={<SignUp/>}></Route>
+        <Route path="/" element={<Home />}></Route>
+        {/*<Route path="/:productId" element={<SingleProduct />}></Route>*/}
+        <Route path="/api/product/find/:id" element={<SingleProduct />} />
+        <Route path="/profile" element={<Profile />}></Route>
+        <Route path="/cart" element={<Cart />}></Route>
+        <Route path="/cart/checkout" element={<CheckOut />}></Route>
+        <Route path="/login" element={<LogIn />}></Route>
+        <Route path="/login/signup" element={<SignUp />}></Route>
       </Routes>
       <Footer />
     </Router>
