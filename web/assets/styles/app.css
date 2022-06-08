@@ -417,9 +417,8 @@ input {
   height: 0%;
   width: 0%;
   place-items: center;
-  background: rgb(126, 34, 34);
   z-index: -2;
-  
+
   left: 0; 
   right: 0; 
   margin-left: auto; 
@@ -495,4 +494,18 @@ input {
 }
 .card-link {
   color: #000;
+}
+
+.add{
+  font-size: 12px;
+  border-radius: 4px;
+  background-color: rgb(25,135,84);
+  height: 20px;
+  width: 50px;
+  padding:0;
+  border: none;
+
+}
+.card-link{
+  font-size: 12px;
 }

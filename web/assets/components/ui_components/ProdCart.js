@@ -1,9 +1,8 @@
 import React from "react";
 import { useCart } from "react-use-cart";
 
-// const ProdCart = ({ product: { id, productName, shortDescription, productPrice, imageUrl } }) => {
 const ProdCart = ({ data, product_name, description, units, price, id, image = null }) => {
-  c; // function ProductCard({ data, product_name, description, units, price, image = null }) {
+  c; 
   const { addItem } = useCart();
   const pic = image ? image : "no image available";
   return (

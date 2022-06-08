@@ -35,40 +35,39 @@ function ProductCard({ data, product_name, description, price, id, units=null, i
   }else if(!image.includes('https://')){
     image = apiHead + image;
   }
+  
+  const capitalStart = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
   const { addItem } = useCart();
   return (
-          <div className="grid">
-    <div className="card-container ">
-          <div className="wrapper">
-            <div className="card front-face">
-              <img src={image} />
-            </div>
-            <div className="card back-face">
+        <div className="grid">
+          <div className="card-container ">
+            <div className="wrapper">
+              <div className="card front-face">
+                <img src={image} />
+              </div>
+              <div className="card back-face">
               <div className="remove">
                 element
               </div>
-              {/* <div className="remove" onClick={() => removeRecipe(recipe.id)}>
-                
-                {element}
-              </div> */}
               <img src={image} />
               <div className="info">
-                <div className="title">{product_name} {price}€/{units}</div>
+                <div className="title">{capitalStart(product_name)} {price}€/{units}</div>
                 <p>{description}</p>
               </div>
-              <Link className="card-link" to={`/api/product/find/${id}`}>
-                See more
+              {/* <Link className="card-link" to={`/api/product/find/${id}`}>
+                 See more 
+              </Link> */}
+              <Link className="card-link" to={`/product/:${id}`}>
+                 See more 
               </Link>
               <button
-            className="btn btn-success"
-            onClick={() =>   //console.log('hello')          
-               addItem({ id: id, product_name, description, price, image })
-            } >
-              Add to cart
-              
-              </button>
-
+              className="add"
+              onClick={() =>            
+                addItem({ id: id, product_name, description, price, display_image })
+              } >
+                add            
+            </button>
             </div>
           </div>
         </div>
