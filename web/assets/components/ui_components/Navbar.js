@@ -21,7 +21,7 @@ function Navbar() {
             <Link to="/profile"> Profile </Link>
           </li>
           <li>
-            <Link to="/cart"> {totalItems} </Link>
+            <Link to="/cart">Cart {totalItems} </Link>
           </li>
           <li>
             <Link to="/login"> Log in </Link>

@@ -25,7 +25,7 @@ function Main() {
             <Route path="/" element={<Home />}>
               {" "}
             </Route>
-            <Route path="/:productId" element={<SingleProduct />}>
+            <Route path="products/:id" element={<SingleProduct />}>
               {" "}
             </Route>
             <Route path="/profile" element={<Profile />}>

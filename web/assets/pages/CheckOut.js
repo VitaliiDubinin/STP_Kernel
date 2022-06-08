@@ -1,9 +1,13 @@
 import React from "react";
+import { useCart } from "react-use-cart";
 
 function CheckOut() {
+  const { cartTotal } = useCart();
+
   return (
     <body>
       <h1>CheckOut</h1>
+      <h1>{cartTotal}</h1>
       <form action="#">
         <div className="form-group">
           <label>Total Amount</label>
